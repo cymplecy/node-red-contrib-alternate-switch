@@ -63,8 +63,8 @@
         {v:"index",t:"index",kind:'S'},
         {v:"tail",t:"tail",kind:'S'},
         {v:"jsonata_exp",t:"JSONata exp",kind:'O'},
-        {v:"else",t:"otherwise",kind:'O'}
-        {v:"default",t:"default",kind:'O'}
+        {v:"else",t:"otherwise",kind:'O'},
+        {v:"default",t:"if no rule matches",kind:'O'}
     ];
 
     var previousValueType = {value:"prev",label:RED._("node-red:switch.previous"),hasValue:false};
@@ -187,7 +187,7 @@
                 }
                 if ((rule.t === 'btwn') || (rule.t === 'index')) {
                     label += " "+getValueLabel(rule.vt,rule.v)+" & "+getValueLabel(rule.v2t,rule.v2);
-                } else if (rule.t !== 'true' && rule.t !== 'false' && rule.t !== 'null' && rule.t !== 'nnull' && rule.t !== 'empty' && rule.t !== 'nempty' && rule.t !== 'else' ) {
+                } else if (rule.t !== 'true' && rule.t !== 'false' && rule.t !== 'null' && rule.t !== 'nnull' && rule.t !== 'empty' && rule.t !== 'nempty' && rule.t !== 'else'  && rule.t !== 'default') {
                     label += " "+getValueLabel(rule.vt,rule.v);
                 }
                 return label;
