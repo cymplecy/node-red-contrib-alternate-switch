@@ -76,7 +76,8 @@ module.exports = function(RED) {
             return a !== undefined && a !== null && (typeof b !== "object" )  &&  a.hasOwnProperty(b+"");
         },
         'jsonata_exp': function(a, b) { return (b === true); },
-        'else': function(a) { return a === true; }
+        'else': function(a) { return a === true; },
+        'default': function(a) { return a === true; }
     };
 
     var _maxKeptCount;
@@ -192,7 +193,7 @@ module.exports = function(RED) {
                     return done(err);
                 }
                 v2 = value;
-                if (rule.t == "else" || rule.t == "default") {
+                if ((rule.t == "else") || (rule.t == "default") ) {
                     property = state.elseflag;
                     state.elseflag = true;
                 }
