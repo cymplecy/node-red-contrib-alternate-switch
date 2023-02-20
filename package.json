@@ -12,5 +12,6 @@
         "nodes": {
             "alternate-switch": "alternate-switch.js"
         }
-   }
+   },
+   "private":true
 }
