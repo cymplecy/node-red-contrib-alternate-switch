@@ -198,7 +198,7 @@ module.exports = function(RED) {
                     state.elseflag = true;
                 }
                 try {
-                    node.warn(state.currentRule);
+                    //node.warn(state.currentRule);
                     if (operators[rule.t](property,v1,v2,rule.case,msg.parts)) {
                         state.onward.push(msg);
                         if (rule.t == "default") {
@@ -213,7 +213,7 @@ module.exports = function(RED) {
                     } else {
                         state.onward.push(null);
                     }
-                    node.warn(state.onward)
+                    //node.warn(state.onward)
                     done(undefined, state.currentRule < node.rules.length - 1);
                 } catch(err) {
                     // An error occurred evaluating the rule - for example, an
@@ -465,7 +465,7 @@ module.exports = function(RED) {
                                 node.error(err, msg);
                             } else {
                                 if (!repair || !hasParts) {
-                                    node.warn(onward);
+                                    //node.warn(onward);
                                     if (onward[0] == "pending") {
                                         for (var i = 1; i < onward.length; i++) {
                                             if (onward[i] != null) {
@@ -476,7 +476,7 @@ module.exports = function(RED) {
                                             onward[0] = msg;
                                         }
                                     }
-                                    node.warn(onward)
+                                    //node.warn(onward)
                                     node.send(onward);
                                 } else {
                                     sendGroupMessages(onward, msg);
