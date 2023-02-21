@@ -207,7 +207,7 @@ module.exports = function(RED) {
                             }
                         }
                         state.elseflag = false;
-                        if (node.checkall == "false") {
+                        if ((node.checkall == "false") && (rule.t != "default")){
                             return done(undefined,false);
                         }
                     } else {
